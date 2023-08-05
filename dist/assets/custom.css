@@ -1,0 +1,113 @@
+:root{
+    --custom-purple:#563d7c;
+    --custom-green:#79FFA0;
+}
+
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+
+a p{
+    font-style: italic;
+}
+
+.main-content{
+    margin-top:10rem;
+}
+.custom-font{
+    color:rgba(86, 61, 124, 0.8)
+
+}
+.opacity{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.logo{
+    width:5rem;
+}
+
+.custom-btn{
+    border-color: var(--custom-purple);
+    color: var(--custom-purple);
+}
+
+.custom-btn:focus, .custom-btn:hover{
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem var(--custom-purple);
+    color: var(--custom-purple)
+}
+
+.custom-btn:active{
+    background-color: var(--custom-purple);
+    border-color: var(--custom-green);
+    color:var(--custom-green)
+}
+
+.max-height{
+    max-height: 900px;
+}
+
+.custon-carousel-caption{
+    position: absolute;
+    width:100%;
+    top: 0px;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.custom-color{
+    color: var(--custom-purple);
+}
+
+
+.divisoria{
+    background-color: var(--custom-purple);
+    height: 2px;
+    width: 60%;
+    margin:0 auto 20px;
+    border-radius: 2px;
+}
+
+.custom-card{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.1rem;
+    
+    
+}
+
+
+.hover{
+    opacity: 1;
+}
+.hover:hover{
+    opacity: .9;
+}
+
+.fa-brands{
+    font-size: 1.5rem;
+}
+
+.custom-link{
+    color: var(--custom-purple);
+    text-decoration: none;
+}
+
+.water-mark{
+    background-color: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beltour - Agência de Viagens</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/custom.css">
+
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/b4c323d369.js" crossorigin="anonymous"></script>
+  </head>
+
+
+
+  <body class="bg-light">
+    <header class="topsite">
+
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar fixed-top">
+            <a class="navbar-brand" href="#"><img src="./assets/img/BeLTOUR.png" class="logo" alt="" srcset=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <!-- navbar-menu -->
+            <div class="collapse navbar-collapse justify-content-end" id="conteudoNavbarSuportado">
+              <ul class="navbar-nav ">
+                <li class="nav-item ">
+                  <a class="nav-link btn custom-btn custom-font " role="button" href="#inicio">Inicio <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link btn custom-btn " role="button" href="#destinos">Destinos <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn custom-btn " role="button" href="#services">Serviços <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn custom-btn" href="#promos">
+                    Promoções
+                  </a>
+                </li>
+                <button type="button" class="nav-item btn custom-btn" data-toggle="modal" data-target=".modal">Contato</button>
+              </ul>
+            </div>
+        </nav>
+    </header>
+
+        <!-- Modal -->
+        <div class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="container w-100 d-flex justify-content-center">
+                  <h4 class="modal-title custom-color">Contato</h4>
+                </div>
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="divisoria"></div>
+              <div class="modal-body">
+                   <!-- formulário modal -->
+                <form class="container">
+                  
+                  <div class="col-auto">
+                  <label class="sr-only" for="formLabelName">Nome</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Nome:</div>
+                    </div>
+                    <input type="text" required class="form-control" id="formLabelName" placeholder="Informe seu nome">
+                  </div>
+                </div>
+
+                <div class="col-auto">
+                  <label class="sr-only" for="formLabelEmail"><E-mail></E-mail></label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">E-mail:</div>
+                    </div>
+                    <input type="email" required class="form-control" id="formLabelEmail" placeholder="contato@beltour.com">
+                  </div>
+                </div>
+
+                <div class="col-auto">
+                  <label class="sr-only" for="formLabelName">Telefone</label>
+                  <div class="input-group mb-1">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Telefone:</div>
+                    </div>
+                    <input type="tel"  class="form-control" id="formLabelTel" placeholder="(xx)123456789">
+                  </div>
+                </div>
+
+                  <div class="col-auto">
+                    <div class="input-group-prepend w-100">
+                      <div class="input-group-text w-100 mb-2">
+                        <p class="w-100 text-center my-0">Nos deixe a sua mensagem ! =D</p></div>
+                    </div>
+                    <textarea required class="form-control" id="formLabelText" rows="3"></textarea>
+                  </div>
+                  <div class="container mx-auto">
+                    <button class="btn btn-block custom-btn mt-1 mb-1" type="button" type="submit" value="submit" data-dismiss="modal">Enviar</button>
+                  </div>
+      
+                </form>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+
+    <main class="main-content container-fluid">
+
+        <section id="inicio">
+          <!-- carousel -->
+        <div class="container-lg bg-transparent mt-5 position-relative">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            
+            <!-- carousel-indicador -->
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+              
+            <!-- carousel -->
+            <div class="carousel-inner max-height">
+                <!-- carousel-item-1 -->
+                <div class="carousel-item active ">
+                  <img class="d-block w-100 max-height" src="./assets/img/praia-das-conchas-cabo-frio2.jpg" alt="Cabo Frio - Panoramico">
+                  <div class="custon-carousel-caption opacity">
+                      <h3 class="font-weight-bold">Descubra</h3>
+                      <p class="font-italic">Encante-se com as belezas</p>
+                  </div>
+                </div>
+               
+               <!-- carousel-item-2 -->
+                <div class="carousel-item ">
+                  <img class="d-block w-100 max-height" src="./assets/img/londres2.jpg" alt="Cabo Frio - Panoramico">
+                  <div class="custon-carousel-caption opacity">
+                      <h3 class="font-weight-bold">Explore</h3>
+                      <p class="font-italic">Destinos Inesquecíveis à Sua Espera</p>
+                  </div>
+                </div>
+
+                <!-- carousel-item-3 -->
+                <div class="carousel-item ">
+                  <img class="d-block w-100 max-height" src="./assets/img/monte-roraima2.jpg" alt="Cabo Frio - Panoramico">
+                  <div class="custon-carousel-caption opacity">
+                      <h3 class="font-weight-bold">Vivêncie</h3>
+                      <p class="font-italic">As maravilhas do nosso mundo</p>
+                  </div>
+                </div>
+             </div>   
+          </div>
+              
+              <!-- carousel-menu -->
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+              </a>
+              
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+              
+              </a>
+          </div>
+      </div>
+        </section>
+
+        <!-- seção destinos -->
+        <section id="destinos" class="destinos">
+
+          <!-- titulo-section -->
+          <div class="container-fluid">
+              <h2 class="mt-5 text-center custom-color p-2">Descubra o Mundo</h2>
+              <div class="row divisoria"></div>
+          </div>
+
+          <div class="container-fluid">
+              <div class="row">
+
+                <div class="col-lg p-0">
+                  <div class="card text-white hover">
+                    <img class="card-img" src="./assets/img/rio-de-janeiro-hero2.jpg" alt="Cristo Redentor">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end ">
+                      <div class="opacity">
+                        <h4 class="card-title">Brasil Encantador</h4>
+                        <p class="card-text font-italic">Explore as maravilhas escondidas do nosso país e mergulhe na diversidade cultural</p>
+                      </div>  
+                    </div>
+                  </div>
+                </div>
+                     
+                <div class="col-lg p-0">
+                  <div class="card text-white hover">
+                    <img class="card-img" src="./assets/img/paris2.jpg" alt="Cristo Redentor">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end ">
+                      <div class="opacity">
+                        <h4 class="card-title">Além das Fronteiras</h4>
+                        <p class="card-text font-italic">Viaje além das fronteiras e vivencie culturas exóticas, paisagens deslumbrantes e experiências únicas pelo mundo.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        </section>
+
+        <section id="services" class="services">
+
+          <!-- titulo-section -->
+          <div class="container-fluid">
+            <h2 class="mt-5 text-center custom-color p-2">Serviços</h2>
+              <div class="row divisoria"></div>
+          </div>
+
+
+          <!-- collapse buttons -->
+          <div>
+            <button class="btn btn-block custom-btn mt-1 mb-1" type="button" data-toggle="collapse" data-target="#collapseHospedagem" aria-expanded="false" aria-controls="collapseHospedagem">
+              Hospedagem
+            </button>
+            <div class="collapse" id="collapseHospedagem">
+              <div class="card card-body">
+                <a href="#">
+                  <p class="custom-font">Descubra as melhores opções de hospedagem para tornar a sua viagem verdadeiramente memorável e confortável.</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button class="btn btn-block custom-btn mt-1 mb-1" type="button" data-toggle="collapse" data-target="#collapsePassagens" aria-expanded="false" aria-controls="collapsePassagens">
+              Passagens Aéreas
+            </button>
+            <div class="collapse" id="collapsePassagens">
+              <div class="card card-body">
+                <a href="#">
+                  <p class="custom-font">Explore nossas opções de passagens aéreas e embarque em uma jornada emocionante rumo aos seus destinos favoritos.</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button class="btn btn-block custom-btn mt-1 mb-1" type="button" data-toggle="collapse" data-target="#collapseRent" aria-expanded="false" aria-controls="collapseRent">
+              Aluguel de Carros
+            </button>
+            <div class="collapse" id="collapseRent">
+              <div class="card card-body">
+                <a href="#">
+                  <p class="custom-font">Tenha a liberdade de explorar cada canto do seu destino com nossas opções de aluguel de carros, criando itinerários personalizados.</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button class="btn btn-block custom-btn mt-1 mb-1" type="button" data-toggle="collapse" data-target="#collapseTranster" aria-expanded="false" aria-controls="collapseTranster">
+              Transfer Aeroporto/Hotel
+            </button>
+            <div class="collapse" id="collapseTranster">
+              <div class="card card-body">
+                <a href="#">
+                  <p class="custom-font">Garanta uma chegada tranquila e sem complicações com nossos serviços de transfer entre o aeroporto e o hotel.</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button class="btn btn-block custom-btn mt-1 mb-1" type="button" data-toggle="collapse" data-target="#collapsePacotes" aria-expanded="false" aria-controls="collapsePacotes">
+              Passeios e Pacotes de Viagem
+            </button>
+            <div class="collapse" id="collapsePacotes">
+              <div class="card card-body">
+                <a href="#">
+                  <p class="custom-font">Escolha entre uma variedade de passeios emocionantes e pacotes de viagem cuidadosamente elaborados para tornar sua jornada inesquecível.</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button class="btn btn-block custom-btn mt-1 mb-1" type="button" data-toggle="collapse" data-target="#collapseSeguro" aria-expanded="false" aria-controls="collapseSeguro">
+              Seguro Viagem
+            </button>
+            <div class="collapse" id="collapseSeguro">
+              <div class="card card-body">
+                <a href="#">
+                  <p class="custom-font">Proteja-se contra imprevistos e viaje com confiança, sabendo que estamos aqui para garantir a sua segurança durante toda a sua jornada</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          
+
+          
+
+  
+        </section>
+
+        <section id="promos" class="promos">
+          <!-- titulo-section -->
+          <div class="container-fluid">
+            <h2 class="mt-5 text-center custom-color p-2">Promoções</h2>
+              <div class="row divisoria"></div>
+          </div>
+          
+          <!-- Promoções 1 -->
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-xl card mb-3 hover">
+                <img class="card-img-top mt-2" src="./assets/img/noronha.jpg" alt="Fernando de noronha">
+                <div class="card-body">
+                  <h4 class="card-title custom-font">Promoção Praias Paradisíacas</h4>
+                  <p class="card-text">Desfrute do sol, areia e mar das praias mais deslumbrantes do Brasil! Reserve agora e mergulhe na beleza do litoral com descontos exclusivos em pacotes para destinos como Fernando de Noronha, Porto de Galinhas e Florianópolis.</p>
+                  <h5 class="custom-font">Incluso:</h5>
+                  <ul>
+                    <li><small>Passagens aéreas de ida e volta</small></li>
+                    <li><small>7 dias de hospedagem em resort beira-mar</small></li>
+                    <li><small>traslados</small></li>
+                    <li><small>passeios de barco pelas praias locais</small></li>
+                    <li><small>café da manhã diário.</small></li>
+                  </ul>
+                  <p class="font-italic font-weight-bold alert-warning custom-font">Valor: R$ 2.500 por pessoa</p>
+                  <button class="btn btn-block custom-btn mt-1 mb-1" type="button" id="promo1" >
+                    Clique aqui e garanta essa PROMOÇÂO
+                  </button>   
+                </div>
+              </div>
+
+              <div class="col-xl card mb-3 hover">
+                <img class="card-img-top mt-2" src="./assets/img/monte-roraima.jpg" alt="Fernando de noronha">
+                <div class="card-body">
+                  <h4 class="card-title custom-font">Descubra a Amazônia</h4>
+                  <p class="card-text">Aventure-se na exuberante floresta amazônica com esta promoção especial. Explore a biodiversidade única, interaja com comunidades locais e navegue pelos rios fascinantes. Reserve sua viagem para a Amazônia com preços incríveis.</p>
+                  <h5 class="custom-font">Incluso:</h5>
+                  <ul>
+                    <li><small>Passagens aéreas de ida e volta</small></li>
+                    <li><small>5 dias de hospedagem em lodge na selva</small></li>
+                    <li><small>traslados</small></li>
+                    <li><small>excursões guiadas pela floresta</small></li>
+                    <li><small>visita a uma aldeia indígena</small></li>
+                    <li><small>todas as refeições.</small></li>
+                  </ul>
+                  <p class="font-italic font-weight-bold alert-warning custom-font">Valor: R$ 3.200 por pessoa</p>
+                  <button class="btn btn-block custom-btn mt-1 mb-1" type="button" id="promo1" >
+                    Clique aqui e garanta essa PROMOÇÂO
+                  </button>   
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-xl card mb-3 hover">
+                <img class="card-img-top mt-2" src="./assets/img/paris2.jpg" alt="Fernando de noronha">
+                <div class="card-body">
+                  <h4 class="card-title custom-font">Exploração Europeia</h4>
+                  <p class="card-text">Viva a magia da Europa com esta promoção única. Visite destinos icônicos como Paris, Roma e Barcelona, descobrindo a riqueza da cultura, história e gastronomia europeias. Reserve sua experiência inesquecível pelo Velho Continente.</p>
+                  <h5 class="custom-font">Incluso:</h5>
+                  <ul>
+                    <li><small>10 dias de hospedagem em hotéis charmosos</small></li>
+                    <li><small>passeios guiados pelos principais pontos turísticos</small></li>
+                    <li><small>traslados</small></li>
+                    <li><small> transporte terrestre entre as cidades</small></li>
+                    <li><small>café da manhã diário</small></li>
+                  </ul>
+                  <p class="font-italic font-weight-bold alert-warning custom-font">Valor: US$ 2.800 por pessoa</p>
+                  <button class="btn btn-block custom-btn mt-1 mb-1" type="button" id="promo1" >
+                    Clique aqui e garanta essa PROMOÇÂO
+                  </button>   
+                </div>
+              </div>
+
+              <div class="col-xl card mb-3 hover">
+                <img class="card-img-top mt-2 mb-4" src="./assets/img/suldesteAsiatico.jpeg" alt="Fernando de noronha">
+                <div class="card-body">
+                  <h4 class="card-title custom-font">Paraísos do Sudeste Asiático</h4>
+                  <p class="card-text">Explore os exóticos destinos do Sudeste Asiático nesta promoção especial. Descubra praias de areias brancas, templos sagrados e mercados vibrantes em lugares como Bali, Tailândia e Vietnã. Reserve sua aventura asiática com descontos exclusivos.</p>
+                  <h5 class="custom-font">Incluso:</h5>
+                  <ul>
+                    <li><small>Passagens aéreas de ida e volta</small></li>
+                    <li><small>8 dias de hospedagem em resorts de luxo</small></li>
+                    <li><small>Traslados</small></li>
+                    <li><small>Passeios culturais e de lazer</small></li>
+                    <li><small>Guias locais</small></li>
+                    <li><small>Todas as refeições.</small></li>
+                  </ul>
+                  <p class="font-italic font-weight-bold alert-warning custom-font">Valor: US$ 1.900 por pessoa</p>
+                  <button class="btn btn-block custom-btn mt-1 mb-1" type="button" id="promo1" >
+                    Clique aqui e garanta essa PROMOÇÂO
+                  </button>   
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <!-- newsLetter -->
+          <div class="container-fluid">
+            <div>
+              <button class="btn btn-block custom-btn mt-1 mb-1" type="button" data-toggle="collapse" data-target="#collapsePromo" aria-expanded="false" aria-controls="collapsePromo">
+                Clique aqui e se cadastre!
+              </button>
+              <div class="collapse" id="collapsePromo">
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" id="newsLetter" placeholder="E-mail@seuemail.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                    <button type="submit" class="btn custom-btn">Enviar</button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    </main>
+
+
+    <!-- Footer =p -->
+    <footer class="footer mt-5 py-3">
+      <div class="container-fluid row">
+        <div class="mini-about col">
+          <figure class="d-flex justify-content-center">
+              <img src="./assets/img/BeLTOUR.png" alt="Logo da Beltour" class="logo">
+          </figure>
+          <p class="text-center">
+              A <strong>Beltour</strong> é uma agência de viagens dedicada a proporcionar experiências únicas e inesquecíveis pelo mundo.
+          </p>
+          <div class="container px-5">
+            <p class="text-center ">
+              Nosso objetivo é tornar seus sonhos de viagem em realidade. 
+              <br>oferecendo roteiros personalizados 
+              <br>e serviços de alta qualidade.
+          </p>
+          </div>
+      </div>
+
+      </div>
+      <div class="container-fluid row">
+        <div class="contacts col-md">
+          <h2 class="text-center custom-color mb-4">Contato</h2>
+          <div class="container-fluid d-flex justify-content-center">
+            <div class="text-center ">
+            <p class="">E-mail: <a href="mailto:contato@beltour.com" class="custom-link">     contato@beltour.com</a></p>
+            <p class="">Telefone: <a href="tel:+55123456789" class="custom-link"> +55 (12) 3456-789</a></p>
+            <p class="">Celular: <a href="tel:+5519987654321" class="custom-link"> +55 (19) 98765-4321</a></p>
+            <p class="">São Paulo - SP</p>
+            </div>
+          </div>
+          
+      </div>
+      <div class="social-media col-md">
+          <h2 class="text-center custom-color mb-4">Redes Sociais</h2>
+          <div class="container">
+            <div class="d-flex justify-content-center">
+              <a href="https://www.instagram.com/beltour" class="d-flex align-content-center custom-link"><i class="fa-brands fa-instagram mr-1 "></i><p class=""> Instagram</p></a>
+          </div>
+          <div class="d-flex justify-content-center">
+              <a href="http://www.youtube.com/beltour" class="d-flex custom-link"><i class="fa-brands fa-youtube mr-1"></i><p> Youtube</p></a>
+          </div>
+          <div class="d-flex justify-content-center">
+              <a href="http://www.facebook.com/beltour" class="d-flex custom-link"><i class="fa-brands fa-square-facebook mr-1"></i><p> Facebook</p></a>
+          </div>
+          <div class="d-flex justify-content-center">
+              <a href="http://www.twitter.com/beltour" class="d-flex custom-link"><i class="fa-brands fa-square-twitter mr-1"></i><p> Twitter</p></a>
+          </div>
+          </div>
+      </div>
+      </div>
+      <div class="container d-flex  justify-content-center text-muted font-italic">
+        <p>© 2023 Beltour. Todos os direitos reservados.</p>
+      </div>
+      <div class="container-fluid d-flex  justify-content-center pt-3 mb-0 text-muted font-italic water-mark">
+        <p>Desenolvido por <a href="https://www.linkedin.com/in/hagartelles/"> Hagar Telles</a></p>
+      </div>
+    </footer>
+
+        
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
