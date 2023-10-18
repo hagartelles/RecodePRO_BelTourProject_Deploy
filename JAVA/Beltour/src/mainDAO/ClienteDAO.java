@@ -4,12 +4,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Main.Cliente;
+import Main.Reservas;
+import Main.Viagem;
 
 
 public class ClienteDAO {
 	
+	//CRIAR CLIENTE
     public void createCliente(Cliente cliente) {
     	
     	String sql = "INSERT INTO cliente (status_cliente, nome_cliente, cpf, telefone, endereco, email ) VALUES (?, ?, ?, ? ,? , ?)";
@@ -34,13 +39,15 @@ public class ClienteDAO {
         }
     }
     
-    public Cliente findById(long id) throws SQLException {
-        	
-    	Connection connection = DatabaseConnector.getConnection();
-    	Cliente cliente = null;
-    	String sql = "SELECT * FROM cliente WHERE ID_CLIENTE = ?";
+    public Cliente findById(long id){
     	
-    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+    	String sql = "SELECT * FROM cliente WHERE ID_CLIENTE = ?";
+    	Cliente cliente = null;
+    	
+    	try {
+    		Connection connection = DatabaseConnector.getConnection();
+    		PreparedStatement stmt = connection.prepareStatement(sql);
+    		
         	
         	stmt.setLong(1, id);
             ResultSet result = stmt.executeQuery();
@@ -61,15 +68,18 @@ public class ClienteDAO {
     	return cliente;
     }
     
-    public void deleteById (long id) throws SQLException {
+    public void deleteById (long id){
     	
-    	Connection connection = DatabaseConnector.getConnection();
+    	
     	String sql = "DELETE FROM cliente WHERE ID_CLIENTE = ?";
     	
-    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-        	
+    	try {
+    		
+    		Connection connection = DatabaseConnector.getConnection();
+    		PreparedStatement stmt = connection.prepareStatement(sql);
     		stmt.setLong(1, id);
             int rowsAffected = stmt.executeUpdate();
+            
             if (rowsAffected > 0) {
             	System.out.println("Record " + id + " delete successfully");
             } else {
@@ -80,8 +90,40 @@ public class ClienteDAO {
         }
     }
     
-    public void updateCliente (Cliente cliente) throws SQLException {
-    	Connection connection = DatabaseConnector.getConnection();
+  //LISTAR RESERVAS
+  	public List<Cliente> findAll() {
+      	
+      	
+      	List<Cliente> clientes = new ArrayList<>();
+      	String sql = "SELECT * FROM cliente";
+      	
+      	try {
+      	
+      		Connection connection = DatabaseConnector.getConnection();
+      		PreparedStatement stmt = connection.prepareStatement(sql);
+      		ResultSet result = stmt.executeQuery();
+
+            while (result.next()) {
+
+            	Cliente cliente = new Cliente();
+            	cliente = new Cliente();
+            	cliente.setId(result.getLong(1));
+            	cliente.setStatus(result.getString(2));
+            	cliente.setNome(result.getString(3));
+            	cliente.setCpf(result.getLong(4));
+            	cliente.setTelefone(result.getLong(5));
+            	cliente.setEndereco(result.getString(6));
+            	cliente.setEmail(result.getString(7));
+            	clientes.add(cliente);
+              }
+          } catch (SQLException e) {
+              e.printStackTrace();
+          }
+      	return clientes;
+      }
+    
+    public void updateCliente (Cliente cliente){
+    	
     	Cliente currentClient = findById(cliente.getId());
     	
     	if(currentClient == null) {
@@ -94,7 +136,10 @@ public class ClienteDAO {
     	
  
     	
-    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+    	try{
+    		
+    		Connection connection = DatabaseConnector.getConnection();
+    		PreparedStatement stmt = connection.prepareStatement(sql);
         	
     		stmt.setString(1, cliente.getStatus());
             stmt.setString(2, cliente.getNome());

@@ -30,13 +30,13 @@ public class MenuController {
 					cadastrarController.cadastrar();
 					break;
 				case 2:
-					pesquisarController.Pesquisar();
+					pesquisarController.pesquisar();
 					break;
 				case 3:
-					atualizarController.Atualizar();
+					atualizarController.atualizar();
 					break;
 				case 4:
-					excluirController.Excluir();
+					excluirController.excluir();
 					break;
 				case 5:
 					System.exit(0);

@@ -1,10 +1,57 @@
 package Controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import Main.Cliente;
+import Main.ScannerAux;
+import mainDAO.ClienteDAO;
+import mainDAO.EmpresaViagemDAO;
+import mainDAO.ReservasDAO;
+import mainDAO.ViagemDAO;
 
 public class ExcluirController {
 	
-	public static void Excluir(){
+	private ClienteDAO clienteDAO = new ClienteDAO();
+	private EmpresaViagemDAO empresaDAO = new EmpresaViagemDAO();
+	private ViagemDAO viagemDAO = new ViagemDAO();
+	private ReservasDAO reservasDAO = new ReservasDAO(); 
+	
+	public void excluir(){
 		
+		do {
+			System.out.println("=================================");
+			System.out.println("	Excluir  ");
+			System.out.println("	1 - Cliente           "); 
+			System.out.println("	2 - Empresa           ");
+			System.out.println("	3 - Viagem           ");
+			System.out.println("	4 - Reserva           "); 
+			System.out.println("	5 - Sair                ");
+			System.out.println("=================================");
+			
+			switch (ScannerAux.scanInt()) {
+				case 1:
+					excluirCliente();
+					excluir();
+					break;
+				
+				case 5:
+					System.exit(0);
+				default:
+					System.out.println("Opção inválida.");
+			}
+			
+		} while (ScannerAux.scanInt() != 5);
 	};
+	
+	private void excluirCliente() {
+		//preenchendo
+		
+		ClienteDAO clienteDAO = new ClienteDAO();
+		Cliente cliente = new Cliente();
+		
+		System.out.println("Informe o ID do cliente a ser excluido");
+		clienteDAO.deleteById(ScannerAux.scanLong());		
+		}
 }

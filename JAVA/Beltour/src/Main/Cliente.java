@@ -94,8 +94,14 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", cpf=" + cpf + ", telefone=" + telefone + ", nome=" + nome + ", endereco="
-				+ endereco + ", email=" + email + ", status=" + status + "]";
+		return "Dados do Cliente"
+				+ "\nid=" + id + ""
+				+ "\ncpf=" + cpf + ""
+				+ "\ntelefone=" + telefone + ""
+				+ "\nnome=" + nome + ""
+				+ "\nendereco="	+ endereco + ""
+				+ "\nemail=" + email + ""
+				+ "\nstatus=" + status + "";
 	}
 
 
