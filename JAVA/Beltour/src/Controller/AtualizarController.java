@@ -43,6 +43,15 @@ public class AtualizarController {
 					System.out.println("Empresa atualizada com sucesso!");
 					atualizar();
 					break;
+				case 3:
+					atualizarViagem();
+					System.out.println("Viagem atualizada com sucesso!");
+					atualizar();
+					break;
+				case 4:
+					atualizarReserva();
+					atualizar();
+					break;
 				case 5:
 					System.exit(0);
 				default:
@@ -113,51 +122,58 @@ public class AtualizarController {
 	
 	private void atualizarViagem(){
 		//preenchendo
-		
-		Viagem viagem = new Viagem();
 		EmpresaViagem empresa = new EmpresaViagem();
 		
+		System.out.println("Informe o ID da viagem a ser atualizada");
+		Viagem viagemAlvo = viagemDAO.findById(ScannerAux.scanLong());
+		
 		System.out.println("Informe o Destino");
-		viagem.setDestino(ScannerAux.scanText());
+		viagemAlvo.setDestino(ScannerAux.scanText());
 		
 		System.out.println("Informe a data da viagem");
-		String dataViagem = ScannerAux.scanText();
+		String NovaDataViagem = ScannerAux.scanText();
 		
 		System.out.println("Informe a data de retorno");
-		String dataRetorno = ScannerAux.scanText();
+		String NovaDataRetorno = ScannerAux.scanText();
 		
 		System.out.println("Informe o id da empresa de viagem");
 		empresa.setId(ScannerAux.scanLong());
-		viagem.setEmpresaViagem(empresa);
+		viagemAlvo.setEmpresaViagem(empresa);
 		
-		viagem.setStatus("Ativo");
+		System.out.println("Informe o status da viagem");
+		viagemAlvo.setStatus(ScannerAux.scanText());
 		
-		LocalDate localdate = LocalDate.now();
-		Date dataSaida = Date.valueOf(localdate);
+
 		
-		viagemDAO.createViagem(viagem);
+		viagemDAO.updateViagem(viagemAlvo);
 	}
 	
-	private void cadastrarReserva(){
+	private void atualizarReserva(){
 		//preenchendo
+		
 		Reservas reserva = new Reservas();
 		ReservasDAO reservasDAO = new ReservasDAO();
 		Cliente cliente = new Cliente();
 		Viagem viagem = new Viagem();
 		
+		System.out.println("Informe o n° da Reserva");
+		Reservas reservaAlvo = reservasDAO.findById(ScannerAux.scanLong());
+		
 		System.out.println("Informe o n° do Cliente");
 		cliente.setId(ScannerAux.scanLong());
-		reserva.setCliente(cliente);
+		reservaAlvo.setCliente(cliente);
 		
 		System.out.println("Informe o n° da viagem");
 		viagem.setId(ScannerAux.scanLong());
-		reserva.setViagem(viagem);		
-		reserva.setStatus("Ativo");
+		reservaAlvo.setViagem(viagem);		
+		
+		System.out.println("Informe o status da Reserva");
+		reservaAlvo.setStatus(ScannerAux.scanText());
 		
 		LocalDate localdate = LocalDate.now();
 		Date dataReserva = Date.valueOf(localdate);
-		reserva.setDataReserva(dataReserva);
+		reservaAlvo.setDataReserva(dataReserva);
 		
-		reservasDAO.createReserva(reserva);
+		reservasDAO.updateReserva(reservaAlvo);
 	}
 }

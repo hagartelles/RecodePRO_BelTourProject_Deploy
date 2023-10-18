@@ -39,14 +39,16 @@ public class ViagemDAO {
         }
     }
 	
-	public Viagem findById(long id) throws SQLException {
+	public Viagem findById(long id){
     	
-    	Connection connection = DatabaseConnector.getConnection();
+    	
     	Viagem viagem = null;
     	String sql = "SELECT * FROM VIAGEM WHERE ID_VIAGEM = ?";
     	
-    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-        
+    	try {
+    		Connection connection = DatabaseConnector.getConnection();
+    		PreparedStatement stmt = connection.prepareStatement(sql);
+    		
         	stmt.setLong(1, id);
             ResultSet result = stmt.executeQuery();
 
@@ -68,14 +70,16 @@ public class ViagemDAO {
     	return viagem;
     }
 	
-	public List<Viagem> findAll() throws SQLException {
+	public List<Viagem> findAll(){
     	
-    	Connection connection = DatabaseConnector.getConnection();
+    	
     	List<Viagem> viagens = new ArrayList<>();
     	String sql = "SELECT * FROM VIAGEM";
     	
-    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-        
+    	try {
+    		Connection connection = DatabaseConnector.getConnection();
+    		PreparedStatement stmt = connection.prepareStatement(sql);
+    		
             ResultSet result = stmt.executeQuery();
 
             while (result.next()) {
@@ -96,13 +100,15 @@ public class ViagemDAO {
     	return viagens;
     }
 	
-	public void deleteById (long id) throws SQLException {
+	public void deleteById (long id){
    	
-    	Connection connection = DatabaseConnector.getConnection();
+    	
     	String sql = "DELETE FROM viagem WHERE ID_VIAGEM = ?";
     	
-    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-        	
+    	try {
+    		Connection connection = DatabaseConnector.getConnection();
+    		PreparedStatement stmt = connection.prepareStatement(sql);
+    		
     		stmt.setLong(1, id);
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -116,8 +122,8 @@ public class ViagemDAO {
     }
 	
 	
-	 public void updateViagem (Viagem viagem) throws SQLException {
-	    	Connection connection = DatabaseConnector.getConnection();
+	 public void updateViagem (Viagem viagem){
+	    	
 	    	Viagem viagemAlvo = findById(viagem.getId());
 	    	
 	    	if(viagemAlvo == null) {
@@ -126,12 +132,14 @@ public class ViagemDAO {
 	    	}
 
 	    	String sql = "UPDATE VIAGEM "
-	    			+ "SET status_VIAGEM = ?,  DESTINO = ?, DATA_SAIDA = ?, DATA_RETORNO = ?, ID_EMPRESA_VIAGEM = ?"
-	    			+ "WHERE id_VIAGEM = ?";
+	    			+ "SET status_VIAGEM = ?,  DESTINO = ?, DATA_SAIDA = ?, DATA_RETORNO = ?, ID_EMPRESA_VIAGEM = ? "
+	    			+ "WHERE ID_VIAGEM = ?";
 	    	
 	 
 	    	
-	    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+	    	try {
+	    		Connection connection = DatabaseConnector.getConnection();
+	    		PreparedStatement stmt = connection.prepareStatement(sql);
 	        	
 	    		stmt.setString(1, viagem.getStatus());
 	            stmt.setString(2, viagem.getDestino());
@@ -154,7 +162,7 @@ public class ViagemDAO {
 	        }
 	    }
 	 
-	 private void popularEmpresaViagem(Viagem viagem) throws SQLException {
+	 private void popularEmpresaViagem(Viagem viagem){
 		
 		 long chaveEstrangeiraDaViagem = viagem.getEmpresaViagem().getId();
 		 

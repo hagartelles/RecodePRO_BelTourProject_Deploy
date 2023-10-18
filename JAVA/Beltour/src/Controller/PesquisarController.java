@@ -6,7 +6,9 @@ import java.util.Scanner;
 
 import Main.Cliente;
 import Main.EmpresaViagem;
+import Main.Reservas;
 import Main.ScannerAux;
+import Main.Viagem;
 import mainDAO.ClienteDAO;
 import mainDAO.EmpresaViagemDAO;
 import mainDAO.ReservasDAO;
@@ -40,6 +42,14 @@ public class PesquisarController {
 					pesquisarEmpresa();
 					pesquisar();
 					break;
+				case 3:
+					pesquisarViagem();
+					pesquisar();
+					break;
+				case 4:
+					pesquisarReserva();
+					pesquisar();
+					break;
 				
 				case 5:
 					System.exit(0);
@@ -63,6 +73,28 @@ public class PesquisarController {
 			System.out.println("===================================================");
 		});
 		//clientes.forEach(c -> System.out.println(c));
+		
+		}
+	
+	private void pesquisarViagem() {
+		//Buscando
+
+		List<Viagem> viagens = viagemDAO.findAll();
+		viagens.forEach(viagensCadastradas-> {
+			System.out.println(viagensCadastradas);
+			System.out.println("===================================================");
+		});
+		
+		}
+	
+	private void pesquisarReserva() {
+		//Buscando
+
+		List<Reservas> reservas = reservasDAO.findAll();
+		reservas.forEach(reservasCadastradas-> {
+			System.out.println(reservasCadastradas);
+			System.out.println("===================================================");
+		});
 		
 		}
 	

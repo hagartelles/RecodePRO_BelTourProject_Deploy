@@ -47,14 +47,16 @@ private ViagemDAO viagemDAO = new ViagemDAO();
     }
 	
 	//BUSCAR RESERVA
-	public Reservas findById(long id) throws SQLException {
+	public Reservas findById(long id){
     	
-    	Connection connection = DatabaseConnector.getConnection();
+    	
     	Reservas reserva = null;
     	String sql = "SELECT * FROM reservas WHERE ID_reserva = ?";
     	
-    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-        
+    	try {
+    		Connection connection = DatabaseConnector.getConnection();
+    		PreparedStatement stmt = connection.prepareStatement(sql);
+    		
         	stmt.setLong(1, id);
             ResultSet result = stmt.executeQuery();
         	
@@ -79,14 +81,14 @@ private ViagemDAO viagemDAO = new ViagemDAO();
     }
 	
 	//LISTAR RESERVAS
-	public List<Reservas> findAll() throws SQLException {
+	public List<Reservas> findAll(){
     	
-    	Connection connection = DatabaseConnector.getConnection();
     	List<Reservas> reservas = new ArrayList<>();
     	String sql = "SELECT * FROM reservas";
     	
-    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-        
+    	try {
+    		Connection connection = DatabaseConnector.getConnection();
+    		PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet result = stmt.executeQuery();
 
             while (result.next()) {
@@ -112,13 +114,14 @@ private ViagemDAO viagemDAO = new ViagemDAO();
     }
 	
 	//DELETAR RESERVA
-	public void deleteById (long id) throws SQLException {
+	public void deleteById (long id){
    	
-    	Connection connection = DatabaseConnector.getConnection();
     	String sql = "DELETE FROM reservas WHERE ID_reserva = ?";
     	
-    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-        	
+    	try {
+    		Connection connection = DatabaseConnector.getConnection();
+    		PreparedStatement stmt = connection.prepareStatement(sql);
+    		
     		stmt.setLong(1, id);
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -132,9 +135,9 @@ private ViagemDAO viagemDAO = new ViagemDAO();
     }
 	
 	//ATUALIZAR RESERVA
-	public void updateReserva (Reservas reserva) throws SQLException {
-	    	Connection connection = DatabaseConnector.getConnection();
-	    	Reservas reservaAlvo = findById(reserva.getId());
+	public void updateReserva (Reservas reserva){
+
+		Reservas reservaAlvo = findById(reserva.getId());
 	    	
 	    	if(reservaAlvo == null) {
 	    		System.out.println("esta reserva não existe ");
@@ -145,8 +148,10 @@ private ViagemDAO viagemDAO = new ViagemDAO();
 	    			+ "SET ID_VIAGEM = ?,  ID_CLIENTE = ?, STATUS_RESERVA = ?, DATA_RESERVA = ?"
 	    			+ "WHERE id_RESERVA = ?";
 	    	
-	    	try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-	        	
+	    	try {
+	    		Connection connection = DatabaseConnector.getConnection();
+	    		PreparedStatement stmt = connection.prepareStatement(sql);
+	    		
 	    		stmt.setLong(1, reserva.getViagem().getId());
 	            stmt.setLong(2, reserva.getCliente().getId());
 	            stmt.setString(3, reserva.getStatus());
@@ -167,7 +172,7 @@ private ViagemDAO viagemDAO = new ViagemDAO();
 	        }
 	    }
 	 
-	 private void popularReservaComViagem(Reservas reserva) throws SQLException {
+	 private void popularReservaComViagem(Reservas reserva){
 		
 		 long chaveEstrangeiraDaViagem = reserva.getViagem().getId();
 		 Viagem reservaDaViagem = viagemDAO.findById(chaveEstrangeiraDaViagem);
@@ -175,7 +180,7 @@ private ViagemDAO viagemDAO = new ViagemDAO();
 			
 	 }
 	 
-	 private void popularReservaComCliente(Reservas reserva) throws SQLException {
+	 private void popularReservaComCliente(Reservas reserva){
 		 
 		 long chaveEstrangeiraDoCliente = reserva.getCliente().getId();
 		 Cliente clienteDaReserva = clienteDAO.findById(chaveEstrangeiraDoCliente);

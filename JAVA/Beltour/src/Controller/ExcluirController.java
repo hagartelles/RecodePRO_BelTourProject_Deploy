@@ -35,12 +35,18 @@ public class ExcluirController {
 					excluirCliente();
 					excluir();
 					break;
-					
 				case 2:
 					excluirEmpresa();
 					excluir();
 					break;
-				
+				case 3:
+					excluirViagem();
+					excluir();
+					break;
+				case 4:
+					excluirReserva();
+					excluir();
+					break;
 				case 5:
 					System.exit(0);
 				default:
@@ -61,12 +67,27 @@ public class ExcluirController {
 		}
 
 
-private void excluirEmpresa() {
-	//preenchendo
+	private void excluirEmpresa() {
+		//preenchendo
+		
+			System.out.println("Informe o ID da empresa a ser excluido");
+			empresaDAO.deleteById(ScannerAux.scanLong());		
+		
+		}
+	private void excluirReserva() {
+		//preenchendo
+		
+			System.out.println("Informe o ID da reserva a ser excluido");
+			reservasDAO.deleteById(ScannerAux.scanLong());		
+		
+		}
 	
-		System.out.println("Informe o ID da empresa a ser excluido");
-		empresaDAO.deleteById(ScannerAux.scanLong());		
-	
-	}
+	private void excluirViagem() {
+		//preenchendo
+		
+			System.out.println("Informe o ID da Viagem a ser excluido");
+			viagemDAO.deleteById(ScannerAux.scanLong());		
+		
+		}
 }
 
