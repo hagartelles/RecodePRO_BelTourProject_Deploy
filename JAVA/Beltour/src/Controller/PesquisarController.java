@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import Main.Cliente;
+import Main.EmpresaViagem;
 import Main.ScannerAux;
 import mainDAO.ClienteDAO;
 import mainDAO.EmpresaViagemDAO;
@@ -35,6 +36,10 @@ public class PesquisarController {
 					pesquisarCliente();
 					pesquisar();
 					break;
+				case 2:
+					pesquisarEmpresa();
+					pesquisar();
+					break;
 				
 				case 5:
 					System.exit(0);
@@ -46,7 +51,7 @@ public class PesquisarController {
 	};
 	
 	private void pesquisarCliente() {
-		//preenchendo
+		//Buscando
 		
 		ClienteDAO clienteDAO = new ClienteDAO();
 		Cliente cliente = new Cliente();
@@ -58,6 +63,17 @@ public class PesquisarController {
 			System.out.println("===================================================");
 		});
 		//clientes.forEach(c -> System.out.println(c));
+		
+		}
+	
+	private void pesquisarEmpresa() {
+		//Buscando
+
+		List<EmpresaViagem> empresas = empresaDAO.findAll();
+		empresas.forEach(empresasCadastradas-> {
+			System.out.println(empresasCadastradas);
+			System.out.println("===================================================");
+		});
 		
 		}
 }

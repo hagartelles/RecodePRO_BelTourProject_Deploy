@@ -38,6 +38,11 @@ public class AtualizarController {
 					System.out.println("Cliente atualizado com sucesso!");
 					atualizar();
 					break;
+				case 2:
+					atualizarEmpresa();
+					System.out.println("Empresa atualizada com sucesso!");
+					atualizar();
+					break;
 				case 5:
 					System.exit(0);
 				default:
@@ -75,35 +80,38 @@ public class AtualizarController {
 		clienteDAO.updateCliente(clienteAlvo);
 		}
 	
-	private void cadastrarEmpresa(){
+	private void atualizarEmpresa(){
 		//preenchendo
 		
-		EmpresaViagem empresa = new EmpresaViagem();
+		System.out.println("Informe o ID da empresa a ser atualizada");
+		EmpresaViagem empresaAlvo = empresaDAO.findById(ScannerAux.scanLong());
 		
-		System.out.println("Informe o nome da empresa");
-		empresa.setNome(ScannerAux.scanText());
 		
-		System.out.println("Informe o nome do cnpj da empresa");
-		empresa.setCnpj(ScannerAux.scanLong());
+		System.out.println("Informe o nome");
+		empresaAlvo.setNome(ScannerAux.scanText());
 		
-		System.out.println("Informe o endereço da empresa");
-		empresa.setEndereco(ScannerAux.scanText());
+		System.out.println("Informe o nome do cnpj");
+		empresaAlvo.setCnpj(ScannerAux.scanLong());
 		
-		System.out.println("Informe o Telefone da empresa");
-		empresa.setTelefone(ScannerAux.scanLong());
+		System.out.println("Informe o endereço");
+		empresaAlvo.setEndereco(ScannerAux.scanText());
 		
-		System.out.println("Informe o E-mail da empresa");
-		empresa.setEmail(ScannerAux.scanText());
+		System.out.println("Informe o Telefone");
+		empresaAlvo.setTelefone(ScannerAux.scanLong());
 		
-		empresa.setStatus("Ativo");
+		System.out.println("Informe o E-mail");
+		empresaAlvo.setEmail(ScannerAux.scanText());
+		
+		System.out.println("Informe o Status");
+		empresaAlvo.setStatus(ScannerAux.scanText());
 		
 		System.out.println("Informe o tipo de transporte da empresa");
-		empresa.setTipo(ScannerAux.scanText());
+		empresaAlvo.setTipo(ScannerAux.scanText());
 		
-		empresaDAO.createEmpresa(empresa);
+		empresaDAO.updateEmpresa(empresaAlvo);
 		}
 	
-	private void cadastrarViagem(){
+	private void atualizarViagem(){
 		//preenchendo
 		
 		Viagem viagem = new Viagem();

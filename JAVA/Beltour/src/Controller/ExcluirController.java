@@ -35,6 +35,11 @@ public class ExcluirController {
 					excluirCliente();
 					excluir();
 					break;
+					
+				case 2:
+					excluirEmpresa();
+					excluir();
+					break;
 				
 				case 5:
 					System.exit(0);
@@ -51,7 +56,17 @@ public class ExcluirController {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		Cliente cliente = new Cliente();
 		
-		System.out.println("Informe o ID do cliente a ser excluido");
+		System.out.println("Informe o ID da cliente a ser excluido");
 		clienteDAO.deleteById(ScannerAux.scanLong());		
 		}
+
+
+private void excluirEmpresa() {
+	//preenchendo
+	
+		System.out.println("Informe o ID da empresa a ser excluido");
+		empresaDAO.deleteById(ScannerAux.scanLong());		
+	
+	}
 }
+

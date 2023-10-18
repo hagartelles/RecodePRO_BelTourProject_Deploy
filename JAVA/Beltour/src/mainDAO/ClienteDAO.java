@@ -81,16 +81,16 @@ public class ClienteDAO {
             int rowsAffected = stmt.executeUpdate();
             
             if (rowsAffected > 0) {
-            	System.out.println("Record " + id + " delete successfully");
+            	System.out.println("Cliente " + id + " deletado com sucesso");
             } else {
-            	System.out.println("No records deleted");
+            	System.out.println("Nenhum dado deletado");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     
-  //LISTAR RESERVAS
+  //LISTAR
   	public List<Cliente> findAll() {
       	
       	
@@ -151,9 +151,9 @@ public class ClienteDAO {
             int rowsAffected = stmt.executeUpdate();
             
             if (rowsAffected > 0) {
-            	System.out.println("Record " + cliente.getId() + " updated successfully");
+            	System.out.println("Cliente " + cliente.getId() + " Atualizado");
             } else {
-            	System.out.println("No records updated");
+            	System.out.println("Nenhum dado atualizado");
             }
             
             

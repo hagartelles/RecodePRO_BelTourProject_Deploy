@@ -87,8 +87,15 @@ public class EmpresaViagem {
 	
 	@Override
 	public String toString() {
-		return "Dados da Empresa \nID: " + id + "\nCNPJ: " + cnpj + "\nTelefone: " + telefone + "\nNome: " + nome
-				+ "\nEndereco: " + endereco + "\nEmail: " + email + "\nStatus: " + status + "\nTipo: " + tipo + "";
+		return "Dados da Empresa "
+				+ "\nID: " + id + ""
+				+ "\nCNPJ: " + cnpj + ""
+				+ "\nTelefone: " + telefone + "" 
+				+ "\nNome: " + nome + ""
+				+ "\nEndereco: " + endereco + ""
+				+ "\nEmail: " + email + ""
+				+ "\nStatus: " + status + ""
+				+ "\nTipo: " + tipo + "";
 	}
 	
 	
